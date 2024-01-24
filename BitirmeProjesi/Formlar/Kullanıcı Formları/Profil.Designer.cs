@@ -394,7 +394,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Profil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Gütüphane";
+            this.Text = "ForLib";
             this.Load += new System.EventHandler(this.Profil_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

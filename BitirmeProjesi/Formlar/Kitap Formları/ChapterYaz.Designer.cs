@@ -236,7 +236,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChapterYaz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Gütüphane";
+            this.Text = "ForLib";
             this.Load += new System.EventHandler(this.ChapterYaz_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

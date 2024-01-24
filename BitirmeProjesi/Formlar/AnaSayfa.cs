@@ -248,15 +248,30 @@ namespace BitirmeProjesi
             {
                 if (gbSonYazilan[i] != null)
                 {
-                    SonYazilanKonumX[i] = konumXYedek;
-                    SonYazilanKonumY[i] = konumYYedek;
+                    if (i > 0)
+                    {
+						SonYazilanKonumX[i] = konumXYedek;
+						SonYazilanKonumY[i] = konumYYedek;
 
-                    gbSonYazilan[i].Location = new Point(SonYazilanKonumX[i] + groupBox1.Location.X, SonYazilanKonumY[i] + groupBox1.Location.Y);
-                    lblSonYazilanYazar[i].Size = new Size(lblSonYazilanYazar[i].Text.Length * 10, lblSonYazilanYazar[i].Size.Height);
-                    lblSonYazilanYazar[i].Location = new Point(gbSonYazilan[i].Location.X + (gbSonYazilan[i].Size.Width / 2) - (lblSonYazilanYazar[i].Size.Width / 2), gbSonYazilan[i].Location.Y + gbSonYazilan[i].Size.Height - (lblSonYazilanYazar[i].Size.Height / 2));
-                    pbSonYazilanResim[i].Location = gbSonYazilan[i].Location;
+						gbSonYazilan[i].Location = new Point(SonYazilanKonumX[i] + groupBox1.Location.X, SonYazilanKonumY[i] + groupBox1.Location.Y);
+						lblSonYazilanYazar[i].Size = new Size(lblSonYazilanYazar[i].Text.Length * 10, lblSonYazilanYazar[i].Size.Height);
+						lblSonYazilanYazar[i].Location = new Point(gbSonYazilan[i].Location.X + (gbSonYazilan[i].Size.Width / 2) - (lblSonYazilanYazar[i].Size.Width / 2) + aralikX, gbSonYazilan[i].Location.Y + gbSonYazilan[i].Size.Height - (lblSonYazilanYazar[i].Size.Height / 2));
+						pbSonYazilanResim[i].Location = gbSonYazilan[i].Location;
 
-                    konumXYedek += groupBox2.Size.Width + aralikX;
+						konumXYedek += groupBox2.Size.Width + aralikX;
+					}
+                    else
+                    {
+						SonYazilanKonumX[i] = konumXYedek;
+						SonYazilanKonumY[i] = konumYYedek;
+
+						gbSonYazilan[i].Location = new Point(SonYazilanKonumX[i] + groupBox1.Location.X, SonYazilanKonumY[i] + groupBox1.Location.Y);
+						lblSonYazilanYazar[i].Size = new Size(lblSonYazilanYazar[i].Text.Length * 10, lblSonYazilanYazar[i].Size.Height);
+						lblSonYazilanYazar[i].Location = new Point(gbSonYazilan[i].Location.X + (gbSonYazilan[i].Size.Width / 2) - (lblSonYazilanYazar[i].Size.Width / 2), gbSonYazilan[i].Location.Y + gbSonYazilan[i].Size.Height - (lblSonYazilanYazar[i].Size.Height / 2));
+						pbSonYazilanResim[i].Location = gbSonYazilan[i].Location;
+
+						konumXYedek += groupBox2.Size.Width + aralikX;
+					}
                 }
             }
 
@@ -267,16 +282,32 @@ namespace BitirmeProjesi
             {
                 if (gbTakipEdilen[i] != null)
                 {
-                    TakipEdilenKonumX[i] = konumXYedek;
-                    TakipEdilenKonumY[i] = konumYYedek;
+                    if (i > 0)
+                    {
+                        TakipEdilenKonumX[i] = konumXYedek;
+                        TakipEdilenKonumY[i] = konumYYedek;
 
-                    gbTakipEdilen[i].Location = new Point(TakipEdilenKonumX[i] + groupBox3.Location.X, TakipEdilenKonumY[i] + groupBox3.Location.Y);
-                    lblTakipEdilenYazar[i].Size = new Size(lblTakipEdilenYazar[i].Text.Length * 10, lblTakipEdilenYazar[i].Size.Height);
-                    lblTakipEdilenYazar[i].Location = new Point(gbTakipEdilen[i].Location.X + (gbTakipEdilen[i].Size.Width / 2) - (lblTakipEdilenYazar[i].Size.Width / 2), gbTakipEdilen[i].Location.Y + gbTakipEdilen[i].Size.Height - (lblTakipEdilenYazar[i].Size.Height / 2));
+                        gbTakipEdilen[i].Location = new Point(TakipEdilenKonumX[i] + groupBox3.Location.X, TakipEdilenKonumY[i] + groupBox3.Location.Y);
+                        lblTakipEdilenYazar[i].Size = new Size(lblTakipEdilenYazar[i].Text.Length * 10, lblTakipEdilenYazar[i].Size.Height);
+                        lblTakipEdilenYazar[i].Location = new Point(gbTakipEdilen[i].Location.X + (gbTakipEdilen[i].Size.Width / 2) - (lblTakipEdilenYazar[i].Size.Width / 2), gbTakipEdilen[i].Location.Y + gbTakipEdilen[i].Size.Height - (lblTakipEdilenYazar[i].Size.Height / 2));
 
-                    pbTakipEdilenResim[i].Location = gbTakipEdilen[i].Location;
+                        pbTakipEdilenResim[i].Location = gbTakipEdilen[i].Location;
 
-                    konumXYedek += groupBox4.Size.Width + aralikX;
+                        konumXYedek += groupBox4.Size.Width + aralikX;
+                    }
+                    else
+                    {
+						TakipEdilenKonumX[i] = konumXYedek;
+						TakipEdilenKonumY[i] = konumYYedek;
+
+						gbTakipEdilen[i].Location = new Point(TakipEdilenKonumX[i] + groupBox3.Location.X, TakipEdilenKonumY[i] + groupBox3.Location.Y);
+						lblTakipEdilenYazar[i].Size = new Size(lblTakipEdilenYazar[i].Text.Length * 10, lblTakipEdilenYazar[i].Size.Height);
+						lblTakipEdilenYazar[i].Location = new Point(gbTakipEdilen[i].Location.X + (gbTakipEdilen[i].Size.Width / 2) - (lblTakipEdilenYazar[i].Size.Width / 2) + aralikX, gbTakipEdilen[i].Location.Y + gbTakipEdilen[i].Size.Height - (lblTakipEdilenYazar[i].Size.Height / 2));
+
+						pbTakipEdilenResim[i].Location = gbTakipEdilen[i].Location;
+
+						konumXYedek += groupBox4.Size.Width + aralikX;
+					}
                 }
             }
 
@@ -287,16 +318,32 @@ namespace BitirmeProjesi
             {
                 if (gbEnCokOkunan[i] != null)
                 {
-                    EnCokOkunanKonumX[i] = konumXYedek;
-                    EnCokOkunanKonumY[i] = konumYYedek;
+                    if (i > 0)
+                    {
+                        EnCokOkunanKonumX[i] = konumXYedek;
+                        EnCokOkunanKonumY[i] = konumYYedek;
 
-                    gbEnCokOkunan[i].Location = new Point(EnCokOkunanKonumX[i] + groupBox5.Location.X, EnCokOkunanKonumY[i] + groupBox5.Location.Y);
-                    lblEnCokOkunanYazar[i].Size = new Size(lblEnCokOkunanYazar[i].Text.Length * 10, lblEnCokOkunanYazar[i].Size.Height);
-                    lblEnCokOkunanYazar[i].Location = new Point(gbEnCokOkunan[i].Location.X + (gbEnCokOkunan[i].Size.Width / 2) - (lblEnCokOkunanYazar[i].Size.Width / 2), gbEnCokOkunan[i].Location.Y + gbEnCokOkunan[i].Size.Height - (lblEnCokOkunanYazar[i].Size.Height / 2));
+                        gbEnCokOkunan[i].Location = new Point(EnCokOkunanKonumX[i] + groupBox5.Location.X, EnCokOkunanKonumY[i] + groupBox5.Location.Y);
+                        lblEnCokOkunanYazar[i].Size = new Size(lblEnCokOkunanYazar[i].Text.Length * 10, lblEnCokOkunanYazar[i].Size.Height);
+                        lblEnCokOkunanYazar[i].Location = new Point(gbEnCokOkunan[i].Location.X + (gbEnCokOkunan[i].Size.Width / 2) - (lblEnCokOkunanYazar[i].Size.Width / 2), gbEnCokOkunan[i].Location.Y + gbEnCokOkunan[i].Size.Height - (lblEnCokOkunanYazar[i].Size.Height / 2));
 
-                    pbEnCokOkunannResim[i].Location = gbEnCokOkunan[i].Location;
+                        pbEnCokOkunannResim[i].Location = gbEnCokOkunan[i].Location;
 
-                    konumXYedek += groupBox6.Size.Width + aralikX;
+                        konumXYedek += groupBox6.Size.Width + aralikX;
+                    }
+                    else
+                    {
+						EnCokOkunanKonumX[i] = konumXYedek;
+						EnCokOkunanKonumY[i] = konumYYedek;
+
+						gbEnCokOkunan[i].Location = new Point(EnCokOkunanKonumX[i] + groupBox5.Location.X, EnCokOkunanKonumY[i] + groupBox5.Location.Y);
+						lblEnCokOkunanYazar[i].Size = new Size(lblEnCokOkunanYazar[i].Text.Length * 10, lblEnCokOkunanYazar[i].Size.Height);
+						lblEnCokOkunanYazar[i].Location = new Point(gbEnCokOkunan[i].Location.X + (gbEnCokOkunan[i].Size.Width / 2) - (lblEnCokOkunanYazar[i].Size.Width / 2) + aralikX, gbEnCokOkunan[i].Location.Y + gbEnCokOkunan[i].Size.Height - (lblEnCokOkunanYazar[i].Size.Height / 2));
+
+						pbEnCokOkunannResim[i].Location = gbEnCokOkunan[i].Location;
+
+						konumXYedek += groupBox6.Size.Width + aralikX;
+					}
                 }
             }
 

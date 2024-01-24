@@ -297,7 +297,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GitapYaz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Gütüphane";
+            this.Text = "ForLib";
             this.Load += new System.EventHandler(this.KitapYaz_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
