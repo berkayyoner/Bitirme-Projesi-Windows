@@ -36,6 +36,7 @@
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.button1 = new System.Windows.Forms.Button();
 			this.btnCikis = new System.Windows.Forms.Button();
+			this.btnAktifSurem = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -118,6 +119,18 @@
 			this.btnCikis.UseVisualStyleBackColor = false;
 			this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
 			// 
+			// btnAktifSurem
+			// 
+			this.btnAktifSurem.BackColor = System.Drawing.Color.Black;
+			this.btnAktifSurem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAktifSurem.ForeColor = System.Drawing.Color.White;
+			this.btnAktifSurem.Location = new System.Drawing.Point(20, 223);
+			this.btnAktifSurem.Name = "btnAktifSurem";
+			this.btnAktifSurem.Size = new System.Drawing.Size(140, 23);
+			this.btnAktifSurem.TabIndex = 12;
+			this.btnAktifSurem.Text = "Aktif Sürem";
+			this.btnAktifSurem.UseVisualStyleBackColor = false;
+			// 
 			// NavBar
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,6 +138,7 @@
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.BackColor = System.Drawing.Color.Black;
 			this.ClientSize = new System.Drawing.Size(180, 530);
+			this.Controls.Add(this.btnAktifSurem);
 			this.Controls.Add(this.btnCikis);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.btnKitapligim);
@@ -150,5 +164,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCikis;
-    }
+		private System.Windows.Forms.Button btnAktifSurem;
+	}
 }
