@@ -37,6 +37,7 @@
 			this.button1 = new System.Windows.Forms.Button();
 			this.btnCikis = new System.Windows.Forms.Button();
 			this.btnAktifSurem = new System.Windows.Forms.Button();
+			this.onlineTimer = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// label1
@@ -130,6 +131,12 @@
 			this.btnAktifSurem.TabIndex = 12;
 			this.btnAktifSurem.Text = "Aktif Sürem";
 			this.btnAktifSurem.UseVisualStyleBackColor = false;
+			this.btnAktifSurem.Click += new System.EventHandler(this.btnAktifSurem_Click);
+			// 
+			// onlineTimer
+			// 
+			this.onlineTimer.Interval = 60000;
+			this.onlineTimer.Tick += new System.EventHandler(this.OnlineTimer_Tick);
 			// 
 			// NavBar
 			// 
@@ -165,5 +172,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCikis;
 		private System.Windows.Forms.Button btnAktifSurem;
+		private System.Windows.Forms.Timer onlineTimer;
 	}
 }

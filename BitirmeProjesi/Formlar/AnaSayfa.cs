@@ -124,7 +124,7 @@ namespace BitirmeProjesi
             }
             #endregion
 
-            #region Takip Edilenlerden Kutuları
+            #region Beğenebilecekleriniz Kutuları
             if (lbBegenebileceklerinizKitapAdi.Items.Count > 0)
             {
                 for (int i = 0; i < lbBegenebileceklerinizKitapAdi.Items.Count; i++)

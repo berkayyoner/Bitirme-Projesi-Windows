@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BitirmeProjesi.Formlar.Kullanıcı_Formları;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,7 @@ namespace BitirmeProjesi
             ana.MdiParent = this.MdiParent;
             ana.Show();
             timer1.Enabled = true;
+            onlineTimer.Enabled = true;
         }
 
         private void btnKitapligim_Click(object sender, EventArgs e)
@@ -74,5 +76,18 @@ namespace BitirmeProjesi
             this.Close();
             ie.Show();
         }
-    }
+
+		private void btnAktifSurem_Click(object sender, EventArgs e)
+		{
+            AktifSurem aks = new AktifSurem(this.Location.Y, kullaniciAdi);
+			aks.MdiParent = this.MdiParent;
+			aks.Show();
+		}
+
+		private void OnlineTimer_Tick(object sender, EventArgs e)
+		{
+            AlgoritmikIslemler ai = new AlgoritmikIslemler();
+            ai.AktifSureGuncelle(kullaniciAdi);
+		}
+	}
 }

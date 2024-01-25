@@ -109,3 +109,4 @@ C:\Users\berka\Documents\GitHub\Bitirme-Projesi\BitirmeProjesi\obj\Debug\Bitirme
 C:\Users\berka\Documents\GitHub\Bitirme-Projesi\BitirmeProjesi\obj\Debug\BitirmeProjesi.csproj.CoreCompileInputs.cache
 C:\Users\berka\Documents\GitHub\Bitirme-Projesi\BitirmeProjesi\obj\Debug\BitirmeProjesi.exe
 C:\Users\berka\Documents\GitHub\Bitirme-Projesi\BitirmeProjesi\obj\Debug\BitirmeProjesi.pdb
+C:\Users\berka\Documents\GitHub\Bitirme-Projesi\BitirmeProjesi\obj\Debug\BitirmeProjesi.Formlar.Kullanıcı_Formları.AktifSurem.resources

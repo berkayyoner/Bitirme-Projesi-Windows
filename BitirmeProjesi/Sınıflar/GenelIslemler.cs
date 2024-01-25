@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Drawing;
 using SpeechLib;
+using System.Data.SqlTypes;
 
 namespace BitirmeProjesi
 {
@@ -473,5 +474,67 @@ namespace BitirmeProjesi
                 return -1;
             }
         }
-    }
+
+        public int GunlukAktifSureAl(string KullaniciAdi)
+        {
+			SqlCommand cmd = new SqlCommand("select * from GunlukAktifSureler where KullaniciAdi = @kul", baglanti);
+			cmd.Parameters.AddWithValue("@kul", KullaniciAdi);
+
+			int sure = -1;
+
+			try
+			{
+				baglanti.Open();
+				SqlDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					sure = reader.GetInt32(2);
+				}
+
+				cmd.Dispose();
+				reader.Close();
+				baglanti.Close();
+				return sure;
+			}
+			catch (Exception ex)
+			{
+				cmd.Dispose();
+				baglanti.Close();
+				MessageBox.Show(ex.Message);
+                return sure;
+			}
+		}
+
+		public int HaftalikAktifSureAl(string KullaniciAdi)
+		{
+			SqlCommand cmd = new SqlCommand("select * from HaftalikAktifSureler where KullaniciAdi = @kul", baglanti);
+			cmd.Parameters.AddWithValue("@kul", KullaniciAdi);
+
+			int sure = -1;
+
+			try
+			{
+				baglanti.Open();
+				SqlDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					sure = reader.GetInt32(2);
+				}
+
+				cmd.Dispose();
+				reader.Close();
+				baglanti.Close();
+				return sure;
+			}
+			catch (Exception ex)
+			{
+				cmd.Dispose();
+				baglanti.Close();
+				MessageBox.Show(ex.Message);
+				return sure;
+			}
+		}
+	}
 }
