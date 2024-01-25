@@ -37,14 +37,14 @@ namespace BitirmeProjesi
         Label[] lblEnCokOkunanYazar = new Label[10];
         PictureBox[] pbEnCokOkunannResim = new PictureBox[10];
 
-        ListBox lbTakipEdilenKitapAdi = new ListBox();
-        ListBox lbTakipEdilenYazarAdi = new ListBox();
-        ListBox lbTakipEdilenResim = new ListBox();
-        int[] TakipEdilenKonumX = new int[10];
-        int[] TakipEdilenKonumY = new int[10];
-        GroupBox[] gbTakipEdilen = new GroupBox[10];
-        Label[] lblTakipEdilenYazar = new Label[10];
-        PictureBox[] pbTakipEdilenResim = new PictureBox[10];
+        ListBox lbBegenebileceklerinizKitapAdi = new ListBox();
+        ListBox lbBegenebileceklerinizYazarAdi = new ListBox();
+        ListBox lbBegenebileceklerinizResim = new ListBox();
+        int[] BegenebileceklerinizKonumX = new int[10];
+        int[] BegenebileceklerinizKonumY = new int[10];
+        GroupBox[] gbBegenebilecekleriniz = new GroupBox[10];
+        Label[] lblBegenebilecekleriniz = new Label[10];
+        PictureBox[] pbBegenebilecekleriniz = new PictureBox[10];
 
         public AnaSayfa(int FormYKonumu, string KullaniciAdi, int Durum) //İlk açılan sayfa 0, sonradan açılanlar 1 ile başlatılacak
         {
@@ -65,10 +65,12 @@ namespace BitirmeProjesi
             AlgoritmikIslemler ai = new AlgoritmikIslemler();
             ai.SonEklenenler(ref lbSonYazilanKitapAdi, ref lbSonYazilanYazarAdi, ref lbSonYazilanResim);
             ai.EnCokOkunanlar(ref lbEnCokOkunanKitapAdi, ref lbEnCokOkunanYazarAdi, ref lbEnCokOkunanResim);
-            ai.TakipEdilenlerdenKitaplar(kullaniciAdi, ref lbTakipEdilenYazarAdi, ref lbTakipEdilenKitapAdi, ref lbTakipEdilenResim);
+			//ai.TakipEdilenlerdenKitaplar(kullaniciAdi, ref lbTakipEdilenYazarAdi, ref lbTakipEdilenKitapAdi, ref lbTakipEdilenResim);
+			ai.Begenebilecekleriniz(kullaniciAdi, ref lbBegenebileceklerinizYazarAdi, ref lbBegenebileceklerinizKitapAdi, ref lbBegenebileceklerinizResim);
 
-            #region Son Yazılanlar Kutuları
-            if (lbSonYazilanKitapAdi.Items.Count > 0)
+
+			#region Son Yazılanlar Kutuları
+			if (lbSonYazilanKitapAdi.Items.Count > 0)
             {
                 for (int i = 0; i < lbSonYazilanKitapAdi.Items.Count; i++)
                 {
@@ -123,36 +125,36 @@ namespace BitirmeProjesi
             #endregion
 
             #region Takip Edilenlerden Kutuları
-            if (lbTakipEdilenKitapAdi.Items.Count > 0)
+            if (lbBegenebileceklerinizKitapAdi.Items.Count > 0)
             {
-                for (int i = 0; i < lbTakipEdilenKitapAdi.Items.Count; i++)
+                for (int i = 0; i < lbBegenebileceklerinizKitapAdi.Items.Count; i++)
                 {
-                    if (lbTakipEdilenKitapAdi.Items[i] != null)
+                    if (lbBegenebileceklerinizKitapAdi.Items[i] != null)
                     {
-                        string kitap = lbTakipEdilenKitapAdi.Items[i].ToString();
-                        string yazar = lbTakipEdilenYazarAdi.Items[i].ToString();
-                        string resim = lbTakipEdilenResim.Items[i].ToString();
+                        string kitap = lbBegenebileceklerinizKitapAdi.Items[i].ToString();
+                        string yazar = lbBegenebileceklerinizYazarAdi.Items[i].ToString();
+                        string resim = lbBegenebileceklerinizResim.Items[i].ToString();
 
-                        gbTakipEdilen[i] = new GroupBox();
-                        gbTakipEdilen[i].ForeColor = Color.White;
-                        gbTakipEdilen[i].Text = kitap;
-                        gbTakipEdilen[i].Size = new Size(groupBox4.Size.Width, groupBox4.Size.Height);
-                        this.Controls.Add(gbTakipEdilen[i]);
-                        gbTakipEdilen[i].BringToFront();
+                        gbBegenebilecekleriniz[i] = new GroupBox();
+                        gbBegenebilecekleriniz[i].ForeColor = Color.White;
+                        gbBegenebilecekleriniz[i].Text = kitap;
+                        gbBegenebilecekleriniz[i].Size = new Size(groupBox4.Size.Width, groupBox4.Size.Height);
+                        this.Controls.Add(gbBegenebilecekleriniz[i]);
+                        gbBegenebilecekleriniz[i].BringToFront();
 
-                        pbTakipEdilenResim[i] = new PictureBox();
-                        pbTakipEdilenResim[i].Size = gbTakipEdilen[i].Size;
-                        pbTakipEdilenResim[i].ImageLocation = resim;
-                        pbTakipEdilenResim[i].SizeMode = PictureBoxSizeMode.StretchImage;
-                        pbTakipEdilenResim[i].Cursor = Cursors.Hand;
-                        this.Controls.Add(pbTakipEdilenResim[i]);
-                        pbTakipEdilenResim[i].BringToFront();
+                        pbBegenebilecekleriniz[i] = new PictureBox();
+                        pbBegenebilecekleriniz[i].Size = gbBegenebilecekleriniz[i].Size;
+                        pbBegenebilecekleriniz[i].ImageLocation = resim;
+                        pbBegenebilecekleriniz[i].SizeMode = PictureBoxSizeMode.StretchImage;
+                        pbBegenebilecekleriniz[i].Cursor = Cursors.Hand;
+                        this.Controls.Add(pbBegenebilecekleriniz[i]);
+                        pbBegenebilecekleriniz[i].BringToFront();
 
-                        lblTakipEdilenYazar[i] = new Label();
-                        lblTakipEdilenYazar[i].Text = kitap;
-                        lblTakipEdilenYazar[i].ForeColor = Color.White;
-                        this.Controls.Add(lblTakipEdilenYazar[i]);
-                        lblTakipEdilenYazar[i].BringToFront();
+                        lblBegenebilecekleriniz[i] = new Label();
+                        lblBegenebilecekleriniz[i].Text = kitap;
+                        lblBegenebilecekleriniz[i].ForeColor = Color.White;
+                        this.Controls.Add(lblBegenebilecekleriniz[i]);
+                        lblBegenebilecekleriniz[i].BringToFront();
 
                         void gb_Click(object sendr, EventArgs a)
                         {
@@ -161,7 +163,7 @@ namespace BitirmeProjesi
                             gt.Show();
                         }
 
-                        gbTakipEdilen[i].Click += new EventHandler(gb_Click);
+                        gbBegenebilecekleriniz[i].Click += new EventHandler(gb_Click);
 
                         void pb_Click(object sendr, EventArgs a)
                         {
@@ -170,7 +172,7 @@ namespace BitirmeProjesi
                             gt.Show();
                         }
 
-                        pbTakipEdilenResim[i].Click += new EventHandler(pb_Click);
+                        pbBegenebilecekleriniz[i].Click += new EventHandler(pb_Click);
                     }
                 }
             }
@@ -278,33 +280,33 @@ namespace BitirmeProjesi
             konumXYedek = groupBox4.Location.X;
             konumYYedek = groupBox4.Location.Y;
 
-            for (int i = 0; i < gbTakipEdilen.Length; i++)
+            for (int i = 0; i < gbBegenebilecekleriniz.Length; i++)
             {
-                if (gbTakipEdilen[i] != null)
+                if (gbBegenebilecekleriniz[i] != null)
                 {
                     if (i > 0)
                     {
-                        TakipEdilenKonumX[i] = konumXYedek;
-                        TakipEdilenKonumY[i] = konumYYedek;
+						BegenebileceklerinizKonumX[i] = konumXYedek;
+						BegenebileceklerinizKonumY[i] = konumYYedek;
 
-                        gbTakipEdilen[i].Location = new Point(TakipEdilenKonumX[i] + groupBox3.Location.X, TakipEdilenKonumY[i] + groupBox3.Location.Y);
-                        lblTakipEdilenYazar[i].Size = new Size(lblTakipEdilenYazar[i].Text.Length * 10, lblTakipEdilenYazar[i].Size.Height);
-                        lblTakipEdilenYazar[i].Location = new Point(gbTakipEdilen[i].Location.X + (gbTakipEdilen[i].Size.Width / 2) - (lblTakipEdilenYazar[i].Size.Width / 2), gbTakipEdilen[i].Location.Y + gbTakipEdilen[i].Size.Height - (lblTakipEdilenYazar[i].Size.Height / 2));
+                        gbBegenebilecekleriniz[i].Location = new Point(BegenebileceklerinizKonumX[i] + groupBox3.Location.X, BegenebileceklerinizKonumY[i] + groupBox3.Location.Y);
+                        lblBegenebilecekleriniz[i].Size = new Size(lblBegenebilecekleriniz[i].Text.Length * 10, lblBegenebilecekleriniz[i].Size.Height);
+                        lblBegenebilecekleriniz[i].Location = new Point(gbBegenebilecekleriniz[i].Location.X + (gbBegenebilecekleriniz[i].Size.Width / 2) - (lblBegenebilecekleriniz[i].Size.Width / 2), gbBegenebilecekleriniz[i].Location.Y + gbBegenebilecekleriniz[i].Size.Height - (lblBegenebilecekleriniz[i].Size.Height / 2));
 
-                        pbTakipEdilenResim[i].Location = gbTakipEdilen[i].Location;
+                        pbBegenebilecekleriniz[i].Location = gbBegenebilecekleriniz[i].Location;
 
                         konumXYedek += groupBox4.Size.Width + aralikX;
                     }
                     else
                     {
-						TakipEdilenKonumX[i] = konumXYedek;
-						TakipEdilenKonumY[i] = konumYYedek;
+						BegenebileceklerinizKonumX[i] = konumXYedek;
+						BegenebileceklerinizKonumY[i] = konumYYedek;
 
-						gbTakipEdilen[i].Location = new Point(TakipEdilenKonumX[i] + groupBox3.Location.X, TakipEdilenKonumY[i] + groupBox3.Location.Y);
-						lblTakipEdilenYazar[i].Size = new Size(lblTakipEdilenYazar[i].Text.Length * 10, lblTakipEdilenYazar[i].Size.Height);
-						lblTakipEdilenYazar[i].Location = new Point(gbTakipEdilen[i].Location.X + (gbTakipEdilen[i].Size.Width / 2) - (lblTakipEdilenYazar[i].Size.Width / 2) + aralikX, gbTakipEdilen[i].Location.Y + gbTakipEdilen[i].Size.Height - (lblTakipEdilenYazar[i].Size.Height / 2));
+						gbBegenebilecekleriniz[i].Location = new Point(BegenebileceklerinizKonumX[i] + groupBox3.Location.X, BegenebileceklerinizKonumY[i] + groupBox3.Location.Y);
+						lblBegenebilecekleriniz[i].Size = new Size(lblBegenebilecekleriniz[i].Text.Length * 10, lblBegenebilecekleriniz[i].Size.Height);
+						lblBegenebilecekleriniz[i].Location = new Point(gbBegenebilecekleriniz[i].Location.X + (gbBegenebilecekleriniz[i].Size.Width / 2) - (lblBegenebilecekleriniz[i].Size.Width / 2) + aralikX, gbBegenebilecekleriniz[i].Location.Y + gbBegenebilecekleriniz[i].Size.Height - (lblBegenebilecekleriniz[i].Size.Height / 2));
 
-						pbTakipEdilenResim[i].Location = gbTakipEdilen[i].Location;
+						pbBegenebilecekleriniz[i].Location = gbBegenebilecekleriniz[i].Location;
 
 						konumXYedek += groupBox4.Size.Width + aralikX;
 					}
@@ -357,11 +359,6 @@ namespace BitirmeProjesi
             Profil pr = new Profil(this.Location.Y, kullaniciAdi, kullaniciAdi);
             pr.MdiParent = this.MdiParent;
             pr.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click_1(object sender, EventArgs e)

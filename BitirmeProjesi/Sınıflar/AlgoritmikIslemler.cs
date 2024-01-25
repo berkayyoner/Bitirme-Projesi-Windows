@@ -102,5 +102,34 @@ namespace BitirmeProjesi
                 MessageBox.Show(ex.Message);
             }
         }
-    }
+
+		public void Begenebilecekleriniz(string KullaniciAdi, ref ListBox YazarAdlari, ref ListBox KitapAdlari, ref ListBox LbResim)
+		{
+			SqlCommand cmd = new SqlCommand("exec Begenebilecekleriniz @kul", baglanti);
+			cmd.Parameters.AddWithValue("@kul", KullaniciAdi);
+
+			try
+			{
+				baglanti.Open();
+				SqlDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					YazarAdlari.Items.Add(reader.GetString(1));
+					KitapAdlari.Items.Add(reader.GetString(2));
+					LbResim?.Items.Add(reader.GetString(5));
+				}
+
+				cmd.Dispose();
+				reader.Close();
+				baglanti.Close();
+			}
+			catch (Exception ex)
+			{
+				cmd.Dispose();
+				baglanti.Close();
+				MessageBox.Show(ex.Message);
+			}
+		}
+	}
 }

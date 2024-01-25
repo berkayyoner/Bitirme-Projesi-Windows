@@ -80,7 +80,7 @@ namespace BitirmeProjesi
             {
                 if (btnOku.Text == "Oku")
                 {
-                    ki.EtiketleriKaydet(kullaniciAdi, yazarKullaniciAdi, lblKitapTuru.Text, lblEtiketler.Text);
+                    ki.EtiketleriKaydet(kullaniciAdi, yazarKullaniciAdi, lblKitap.Text, lblKitapTuru.Text, lblEtiketler.Text);
                     Oku o = new Oku(this.Location.Y, kullaniciAdi, kitapAdi, yazarKullaniciAdi, 0);
                     o.MdiParent = this.MdiParent;
                     o.Show();

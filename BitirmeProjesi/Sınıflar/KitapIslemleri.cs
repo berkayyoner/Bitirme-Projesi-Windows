@@ -411,14 +411,46 @@ namespace BitirmeProjesi
             }
         }
 
-        public void EtiketleriKaydet(string KullaniciAdi, string YazarAdi, string KitapTuru, string Etiketler)
+        public int KitapIDAl(string KullaniciAdi, string KitapAdi)
+        {
+			int KitapID = -1;
+			SqlCommand cmd = new SqlCommand("select ID from Kitaplar where KullaniciAdi = @ka and KitapAdi = @kt", baglanti);
+			cmd.Parameters.Clear();
+			cmd.Parameters.AddWithValue("@ka", KullaniciAdi);
+			cmd.Parameters.AddWithValue("@kt", KitapAdi);
+
+			try
+			{
+				baglanti.Open();
+				SqlDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					KitapID = reader.GetInt32(0);
+				}
+
+				cmd.Dispose();
+				reader.Close();
+				baglanti.Close();
+                return KitapID;
+			}
+			catch (Exception ex)
+			{
+				cmd.Dispose();
+				baglanti.Close();
+				MessageBox.Show(ex.Message);
+			}
+			return KitapID;
+        }
+
+        public void EtiketleriKaydet(string KullaniciAdi, string YazarAdi, string KitapAdi, string KitapTuru, string Etiketler)
         {
             SqlCommand sil = new SqlCommand("delete from Etiketler where KullaniciAdi = @ka and YazarAdi = @ya and KitapTuru = @kt", baglanti);
             sil.Parameters.AddWithValue("@ka", KullaniciAdi);
             sil.Parameters.AddWithValue("@ya", YazarAdi);
             sil.Parameters.AddWithValue("@kt", KitapTuru);
 
-            SqlCommand cmd = new SqlCommand("insert into Etiketler (KullaniciAdi, YazarAdi, KitapTuru, Etiketler) values (@ka, @ya, @kt, @et)", baglanti);
+            SqlCommand cmd = new SqlCommand("insert into Etiketler (KitapID, KullaniciAdi, YazarAdi, KitapTuru, Etiketler) values (@kid, @ka, @ya, @kt, @et)", baglanti);
             
 
             try
@@ -437,11 +469,15 @@ namespace BitirmeProjesi
             }
 
 
-            string[] Etk = Etiketler.Split(';');
+            string[] Etk = Etiketler.Split(' ');
+
+            int KitapID = 0;
+            KitapID = KitapIDAl(KullaniciAdi, KitapAdi);
 
             for (int i = 0; i < Etk.Length; i++)
             {
                 cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@kid", KitapID);
                 cmd.Parameters.AddWithValue("@ka", KullaniciAdi);
                 cmd.Parameters.AddWithValue("@ya", YazarAdi);
                 cmd.Parameters.AddWithValue("@kt", KitapTuru);
