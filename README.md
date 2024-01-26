@@ -1,17 +1,17 @@
 ### T.C.
-### MALTEPE ÜNİVERSİTESİ
-### MESLEK YÜKSEK OKULU
-### Bilgisayar Programcılığı
+### ÜSKÜDAR ÜNİVERSİTESİ
+### MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ
+### Yazılım Mühendisliği (İng)
 .
-#### 2. Sınıf Bitirme Projesi
+#### 4. Sınıf Bitirme Projesi
 .
-### "GÜTÜPHANE"
+### "ForLib"
 .
 ### Öğretmen
 
-- Abdulkadir Erdem
+- Belaynesh Chekol
 
 
 ### Hazırlayanlar
 
-- Berkay Öner - 200903034
+- Berkay Öner - 220209075
