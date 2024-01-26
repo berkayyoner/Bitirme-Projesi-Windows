@@ -138,7 +138,7 @@ namespace BitirmeProjesi
 			cmd1.Parameters.AddWithValue("@kul", KullaniciAdi);
 
 			SqlCommand cmd2 = new SqlCommand("select * from HaftalikAktifSureler where KullaniciAdi = @kul", baglanti);
-			cmd1.Parameters.AddWithValue("@kul", KullaniciAdi);
+			cmd2.Parameters.AddWithValue("@kul", KullaniciAdi);
 
 			int gunlukSure = -1;
 			int haftalikSure = -1;
@@ -181,6 +181,10 @@ namespace BitirmeProjesi
 
 			if (gunlukSure > -1)
 			{
+				if (gunlukSure == 240 || gunlukSure == 360 || gunlukSure == 480)
+				{
+					MessageBox.Show("Ufak bir hatırlatma", "Bu gün toplam 4 saat kadar kitap okudun. Göz sağlığı değerlendirmesi için Aktif Sürem sayfasını ziyaret etmeyi deneyebilirsin.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
 				if (gunlukKayitliTarih.Subtract(guncelTarih).Days >= 1)
 				{
 					SqlCommand cmd5 = new SqlCommand("delete from GunlukAktifSureler where KullaniciAdi = @kul", baglanti);
@@ -203,8 +207,8 @@ namespace BitirmeProjesi
 				else
 				{
 					SqlCommand cmd3 = new SqlCommand("update GunlukAktifSureler set AktifSure = @aks where KullaniciAdi = @kul", baglanti);
-					cmd3.Parameters.AddWithValue("@kul", KullaniciAdi);
 					cmd3.Parameters.AddWithValue("@aks", gunlukSure + 1);
+					cmd3.Parameters.AddWithValue("@kul", KullaniciAdi);
 					try
 					{
 						baglanti.Open();
@@ -223,9 +227,9 @@ namespace BitirmeProjesi
 			}
 			else
 			{
-				SqlCommand cmd4 = new SqlCommand("insert into GunlukAktifSureler (KullaniciAdi, AktifSure, [Ilk Kayit]) values (@ka, aks, ik)", baglanti);
-				cmd4.Parameters.AddWithValue("@kul", KullaniciAdi);
-				cmd4.Parameters.AddWithValue("@aks", 0);
+				SqlCommand cmd4 = new SqlCommand("insert into GunlukAktifSureler (KullaniciAdi, AktifSure, [Ilk Kayit]) values (@ka, @aks, @ik)", baglanti);
+				cmd4.Parameters.AddWithValue("@ka", KullaniciAdi);
+				cmd4.Parameters.AddWithValue("@aks", 1);
 				cmd4.Parameters.AddWithValue("@ik", guncelTarih);
 
 				try
@@ -268,8 +272,8 @@ namespace BitirmeProjesi
 				else
 				{
 					SqlCommand cmd7 = new SqlCommand("update HaftalikAktifSureler set AktifSure = @aks where KullaniciAdi = @kul", baglanti);
-					cmd7.Parameters.AddWithValue("@kul", KullaniciAdi);
 					cmd7.Parameters.AddWithValue("@aks", gunlukSure + 1);
+					cmd7.Parameters.AddWithValue("@kul", KullaniciAdi);
 					try
 					{
 						baglanti.Open();
@@ -288,9 +292,9 @@ namespace BitirmeProjesi
 			}
 			else
 			{
-				SqlCommand cmd8 = new SqlCommand("insert into HaftalikAktifSureler (KullaniciAdi, AktifSure, [Ilk Kayit]) values (@ka, aks, ik)", baglanti);
-				cmd8.Parameters.AddWithValue("@kul", KullaniciAdi);
-				cmd8.Parameters.AddWithValue("@aks", 0);
+				SqlCommand cmd8 = new SqlCommand("insert into HaftalikAktifSureler (KullaniciAdi, AktifSure, [Ilk Kayit]) values (@ka, @aks, @ik)", baglanti);
+				cmd8.Parameters.AddWithValue("@ka", KullaniciAdi);
+				cmd8.Parameters.AddWithValue("@aks", 1);
 				cmd8.Parameters.AddWithValue("@ik", guncelTarih);
 
 				try

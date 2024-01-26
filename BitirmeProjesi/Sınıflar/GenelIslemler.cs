@@ -480,7 +480,7 @@ namespace BitirmeProjesi
 			SqlCommand cmd = new SqlCommand("select * from GunlukAktifSureler where KullaniciAdi = @kul", baglanti);
 			cmd.Parameters.AddWithValue("@kul", KullaniciAdi);
 
-			int sure = -1;
+			int sure = 0;
 
 			try
 			{
@@ -502,7 +502,7 @@ namespace BitirmeProjesi
 				cmd.Dispose();
 				baglanti.Close();
 				MessageBox.Show(ex.Message);
-                return sure;
+                return -1;
 			}
 		}
 
@@ -511,7 +511,7 @@ namespace BitirmeProjesi
 			SqlCommand cmd = new SqlCommand("select * from HaftalikAktifSureler where KullaniciAdi = @kul", baglanti);
 			cmd.Parameters.AddWithValue("@kul", KullaniciAdi);
 
-			int sure = -1;
+			int sure = 0;
 
 			try
 			{
@@ -533,7 +533,37 @@ namespace BitirmeProjesi
 				cmd.Dispose();
 				baglanti.Close();
 				MessageBox.Show(ex.Message);
+				return -1;
+			}
+		}
+
+		public int OrtalamaAktifSureAl()
+		{
+			SqlCommand cmd = new SqlCommand("select AVG(AktifSure) from HaftalikAktifSureler", baglanti);
+
+			int sure = 0;
+
+			try
+			{
+				baglanti.Open();
+				SqlDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					sure = reader.GetInt32(0);
+				}
+
+				cmd.Dispose();
+				reader.Close();
+				baglanti.Close();
 				return sure;
+			}
+			catch (Exception ex)
+			{
+				cmd.Dispose();
+				baglanti.Close();
+				MessageBox.Show(ex.Message);
+				return -1;
 			}
 		}
 	}
