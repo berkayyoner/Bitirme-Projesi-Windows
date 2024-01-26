@@ -14,6 +14,4 @@
 
 ### Hazırlayanlar
 
-- Halenur Çidem - 200903018
-
 - Berkay Öner - 200903034
