@@ -183,7 +183,7 @@ namespace BitirmeProjesi
 			{
 				if (gunlukSure == 240 || gunlukSure == 360 || gunlukSure == 480)
 				{
-					MessageBox.Show("Ufak bir hatırlatma", "Bu gün toplam 4 saat kadar kitap okudun. Göz sağlığı değerlendirmesi için Aktif Sürem sayfasını ziyaret etmeyi deneyebilirsin.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show("Bu gün toplam 4 saat kadar kitap okudun. Göz sağlığı değerlendirmesi için Aktif Sürem sayfasını ziyaret etmeyi deneyebilirsin.", "Ufak bir hatırlatma", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 				if (gunlukKayitliTarih.Subtract(guncelTarih).Days >= 1)
 				{

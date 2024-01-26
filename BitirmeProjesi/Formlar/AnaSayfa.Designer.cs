@@ -61,11 +61,11 @@
 			// 
 			this.lblSayfaAciklama.AutoSize = true;
 			this.lblSayfaAciklama.ForeColor = System.Drawing.Color.White;
-			this.lblSayfaAciklama.Location = new System.Drawing.Point(147, 67);
+			this.lblSayfaAciklama.Location = new System.Drawing.Point(185, 66);
 			this.lblSayfaAciklama.Name = "lblSayfaAciklama";
-			this.lblSayfaAciklama.Size = new System.Drawing.Size(321, 13);
+			this.lblSayfaAciklama.Size = new System.Drawing.Size(221, 13);
 			this.lblSayfaAciklama.TabIndex = 9;
-			this.lblSayfaAciklama.Text = "Sizin hazırladığınız ve sizin için hazırlanan liste ve kitaplara göz atın.";
+			this.lblSayfaAciklama.Text = "Sizin için hazırlanan liste ve kitaplara göz atın.";
 			// 
 			// timer1
 			// 

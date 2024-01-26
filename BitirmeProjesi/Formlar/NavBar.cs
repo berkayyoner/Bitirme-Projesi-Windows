@@ -32,9 +32,9 @@ namespace BitirmeProjesi
             ana.Show();
             timer1.Enabled = true;
             onlineTimer.Enabled = true;
-        }
+		}
 
-        private void btnKitapligim_Click(object sender, EventArgs e)
+		private void btnKitapligim_Click(object sender, EventArgs e)
         {
             Gitapligim git = new Gitapligim(ana.Location.Y, kullaniciAdi);
             git.MdiParent = this.MdiParent;
