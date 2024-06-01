@@ -5,7 +5,7 @@
 .
 #### 4. Sınıf Bitirme Projesi
 .
-### "ForLib"
+### "ForLib Windows Uygulaması"
 .
 ### Öğretmen
 
